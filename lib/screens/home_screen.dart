@@ -1,3 +1,4 @@
+// import 'package:fluent_fusion/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,6 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // final AuthMethods _authMethods = AuthMethods();
   @override
   Widget build(BuildContext context) {
     return Container();
