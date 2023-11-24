@@ -4,10 +4,21 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fluent_fusion/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+// Import firebase core and generated file
+
+import 'firebase_options.dart';
+
 void main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); // Load widgets first then firebase auth
-  await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized(); // Load widgets first then firebase auth
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  // try {
+  //   await Firebase.initializeApp();
+  //   print('Firebase initialized successfully!');
+  // } catch (e) {
+  //   print('Error initializing Firebase: $e');
+  // }
   runApp(const MyApp());
 }
 
