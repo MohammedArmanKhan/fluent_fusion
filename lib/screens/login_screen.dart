@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluent_fusion/resources/auth_methods.dart';
 import 'package:fluent_fusion/widgets/custom_button.dart';
 
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -25,10 +26,13 @@ class _LoginScreenState extends State<LoginScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
+           Padding(
             padding: const EdgeInsets.symmetric(vertical: 38.0),
             child: Image.asset('assets/images/onboarding.jpg'),
           ),
+
+
+
           CustomButton(
             text: 'Google Sign In',
             onPressed: () async {
@@ -42,4 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
 }
+
