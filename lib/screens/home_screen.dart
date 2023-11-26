@@ -1,5 +1,8 @@
-// import 'package:fluent_fusion/resources/auth_methods.dart';
+import 'package:fluent_fusion/resources/auth_methods.dart';
+import 'package:fluent_fusion/widgets/home_meeting_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fluent_fusion/utils/colors.dart';
+import 'package:fluent_fusion/widgets/custom_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,6 +13,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // final AuthMethods _authMethods = AuthMethods();
+  int _page = 0;
+  onPageChanged(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +27,22 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: backgroundColor,
         elevation: 0,
         title: const Text('Meet & Chat'),
-    centerTitle: true,
+        centerTitle: true,
     ),
-      body: pages[_page],
+      // body: pages[_page],
+
+      body: Column(
+        children: [
+          Row(
+            children: [
+              HomeMeetingButton(
+                onPressed: () {},
+              )
+            ],
+          )
+        ],
+      )
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
         selectedItemColor: Colors.white,

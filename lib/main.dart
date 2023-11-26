@@ -3,6 +3,7 @@ import 'package:fluent_fusion/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fluent_fusion/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:fluent_fusion/resources/auth_methods.dart';
 
 // Import firebase core and generated file
 
