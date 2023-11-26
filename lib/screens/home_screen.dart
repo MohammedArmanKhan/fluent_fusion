@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       )
 
-      bottomNavigationBar: BottomNavigationBar(
+      ,bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
