@@ -3,6 +3,7 @@ import 'package:fluent_fusion/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fluent_fusion/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:fluent_fusion/resources/auth_methods.dart';
 
 // Import firebase core and generated file
 
@@ -38,7 +39,20 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
       },
-      home: const LoginScreen(),
+      home: StreamBuilder(
+          stream: AuthMethods().authChanges,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (snapshot.hasData) {
+              return const HomeScreen();
+            }
+            return const LoginScreen();
+          }
+      ),
     );
   }
 }
