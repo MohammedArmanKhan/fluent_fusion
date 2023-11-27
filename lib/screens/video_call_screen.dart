@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
-import 'package:zoom_clone_tutorial/resources/auth_methods.dart';
-import 'package:zoom_clone_tutorial/resources/jitsi_meet_methods.dart';
-import 'package:zoom_clone_tutorial/utils/colors.dart';
-import 'package:zoom_clone_tutorial/widgets/meeting_option.dart';
+import 'package:fluent_fusion/resources/auth_methods.dart';
+import 'package:fluent_fusion/utils/colors.dart';
+// import 'package:fluent_fusion/widgets/meeting_option.dart';
 
 class VideoCallScreen extends StatefulWidget {
   const VideoCallScreen({Key? key}) : super(key: key);
@@ -16,7 +14,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   final AuthMethods _authMethods = AuthMethods();
   late TextEditingController meetingIdController;
   late TextEditingController nameController;
-  final JitsiMeetMethods _jitsiMeetMethods = JitsiMeetMethods();
+  // final JitsiMeetMethods _jitsiMeetMethods = JitsiMeetMethods();
   bool isAudioMuted = true;
   bool isVideoMuted = true;
 

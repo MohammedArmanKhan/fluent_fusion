@@ -1,5 +1,8 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.example.fluent_fusion"
+     xmlns:tools="http://schemas.android.com/tools">
     <application
+        tools:replace="android:label"
         android:label="fluent_fusion"
         android:name=".MainApplication"
         android:icon="@mipmap/ic_launcher">
