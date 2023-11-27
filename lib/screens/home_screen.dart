@@ -12,6 +12,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
   // final AuthMethods _authMethods = AuthMethods();
   int _page = 0;
   onPageChanged(int page) {
@@ -24,6 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundColor,
@@ -62,11 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const Expanded(
               child: Center(
-                  child: Text('Create/Join Meeting with just a click!'),
+                child: Text(
+                  'Create/Join Meeting with just a click!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
               ),
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
