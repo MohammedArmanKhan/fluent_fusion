@@ -69,13 +69,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const Expanded(
               child: Center(
-                  child: Text('Create/Join Meeting with just a click!'),
+                child: Text(
+                  'Create/Join Meeting with just a click!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
               ),
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
 
-      ,bottomNavigationBar: BottomNavigationBar(
+
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
