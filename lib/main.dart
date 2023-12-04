@@ -11,7 +11,8 @@ import 'package:fluent_fusion/screens/video_call_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Load widgets first then firebase auth
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Load widgets first then firebase auth
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
-
+        '/video-call': (context) => const VideoCallScreen(),
       },
       home: StreamBuilder(
           stream: AuthMethods().authChanges,
@@ -53,8 +54,7 @@ class MyApp extends StatelessWidget {
               return const HomeScreen();
             }
             return const LoginScreen();
-          }
-      ),
+          }),
     );
   }
 }
