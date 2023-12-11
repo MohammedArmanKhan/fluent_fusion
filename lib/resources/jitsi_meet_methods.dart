@@ -1,5 +1,4 @@
-import 'package:jitsi_meet/feature_flag/feature_flag.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
+import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 import 'package:fluent_fusion/resources/auth_methods.dart';
 import 'package:fluent_fusion/resources/firestore_methods.dart';
 
@@ -14,25 +13,35 @@ class JitsiMeetMethods {
     String username = '',
   }) async {
     try {
-      FeatureFlag featureFlag = FeatureFlag();
-      featureFlag.welcomePageEnabled = false;
-      featureFlag.resolution = FeatureFlagVideoResolution
-          .MD_RESOLUTION; // Limit video resolution to 360p
+      // FeatureFlag featureFlag = featureFlag();
+      // featureFlag.welcomePageEnabled = false;
+      // featureFlag.resolution = FeatureFlagVideoResolution
+      //     .MD_RESOLUTION; // Limit video resolution to 360p
       String name;
       if (username.isEmpty) {
         name = _authMethods.user.displayName!;
       } else {
         name = username;
       }
-      var options = JitsiMeetingOptions(room: roomName)
-        ..userDisplayName = name
-        ..userEmail = _authMethods.user.email
-        ..userAvatarURL = _authMethods.user.photoURL
-        ..audioMuted = isAudioMuted
-        ..videoMuted = isVideoMuted;
-
+      var options = JitsiMeetConferenceOptions(
+          serverURL: "https://meet.jit.si",
+          room: "jitsiIsAwesomeWithFlutter",
+          configOverrides: {
+            "startWithAudioMuted": false,
+            "startWithVideoMuted": false,
+            "subject" : "Jitsi with Flutter",
+          },
+        featureFlags: {
+          "unsaferoomwarning.enabled": false
+        },
+        userInfo: JitsiMeetUserInfo(
+            displayName: "Flutter user",
+            email: "user@example.com"
+        ),
+      );
       _firestoreMethods.addToMeetingHistory(roomName);
-      await JitsiMeet.joinMeeting(options);
+      var jitsiMeet = JitsiMeet();
+      await jitsiMeet.join(options);
     } catch (error) {
       print("error: $error");
     }

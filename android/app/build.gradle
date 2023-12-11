@@ -1,9 +1,11 @@
-//plugins {
-//    id "com.android.application"
-//    id "kotlin-android"
-//    id "dev.flutter.flutter-gradle-plugin"
-//    id "com.google.gms.google-services"
-//}
+//import java.util.Properties
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
@@ -23,12 +25,14 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'com.google.gms.google-services'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
 android {
+    lintOptions {
+        warningsAsErrors true
+        checkReleaseBuilds true
+        // Add the following lines for deprecation and unchecked warnings
+        warning 'deprecation'
+        warning 'unchecked'
+    }
 //    namespace "com.example.fluent_fusion"
     compileSdkVersion flutter.compileSdkVersion
 //    ndkVersion flutter.ndkVersion
@@ -64,7 +68,7 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
             minifyEnabled true
-            useProguard true
+//            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

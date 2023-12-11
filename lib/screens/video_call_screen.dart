@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
+import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 import 'package:fluent_fusion/resources/auth_methods.dart';
 import 'package:fluent_fusion/resources/jitsi_meet_methods.dart';
 import 'package:fluent_fusion/utils/colors.dart';
@@ -29,20 +29,21 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    meetingIdController.dispose();
-    nameController.dispose();
-    JitsiMeet.removeAllListeners();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   meetingIdController.dispose();
+  //   nameController.dispose();
+  //   JitsiMeet.removeAllListeners();
+  // }
 
   _joinMeeting() {
-    _jitsiMeetMethods.createMeeting(
-      roomName: meetingIdController.text,
+    var options = JitsiMeetConferenceOptions(room: 'jitsiIsAwesome');
+    var jitsiMeet = JitsiMeet();(
       isAudioMuted: isAudioMuted,
       isVideoMuted: isVideoMuted,
       username: nameController.text,
+      jitsiMeet.join(options)
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluent_fusion/resources/firestore_methods.dart';
 import 'package:fluent_fusion/utils/colors.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 
 class HistoryMeetingScreen extends StatelessWidget {
   const HistoryMeetingScreen({Key? key}) : super(key: key);
@@ -23,9 +23,9 @@ class HistoryMeetingScreen extends StatelessWidget {
             title: Text(
               'Room Name: ${(snapshot.data! as dynamic).docs[index]['meetingName']}',
             ),
-            subtitle: Text(
-              'Joined on ${DateFormat.yMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}',
-            ),
+            // subtitle: Text(
+            //   'Joined on ${DateFormat.yMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}',
+            // ),
           ),
         );
       },
